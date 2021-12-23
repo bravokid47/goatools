@@ -122,7 +122,8 @@ wget http://www.geneontology.org/ontology/subsets/goslim_generic.obo
   [bioconda](http://bioconda.github.io/recipes/goatools/README.html?highlight=goatools).
 
 - For statistical testing of GO enrichment:
-
+  - pvalcalc.py, lin3 31, import fisher
+  - install fisher, pip install fisher, https://github.com/brentp/fishers_exact_test
   - [`scipy.stats.fisher_exact`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fisher_exact.html)
   - `statsmodels` (optional) for access to a variety of statistical tests for GOEA
 
@@ -144,9 +145,9 @@ See examples in [find_enrichment](/doc/md/README_find_enrichment.md)
 The `find_enrichment.py` takes as arguments files
 containing:
 
-- gene names in a study
-- gene names in population (or other study if `--compare` is specified)
-- an association file that maps a gene name to a GO category.
+- gene names in a study **(list of gene names of interest)**
+- gene names in population (or other study if `--compare` is specified) **(list of all gene names as background reference)**
+- an association file that maps a gene name to a GO category. **(two columns separated by Tab, 1st_col:gene_name, 2nd_col:GO:xxxx;GO:xxxxx;)**
 
 Please look at `tests/data` folder to see examples on how to make these
 files. when ready, the command looks like:
